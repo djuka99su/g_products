@@ -457,7 +457,7 @@
         <img id="large-image" src="" alt="Large Image">
     </div>
 
-    <!-- <script>
+    <script>
         window.addEventListener('DOMContentLoaded', (event) => {
             const overlay = document.getElementById('overlay');
             const largeImage = document.getElementById('large-image');
@@ -474,7 +474,8 @@
 
             const images = document.querySelectorAll('.card-img-top');
             images.forEach(img => {
-                img.addEventListener('click', (e) => {  
+                img.addEventListener('click', (e) => {
+                    largeImage.src = e.target.src;  
                     if (window.innerWidth < 1200) {
                         overlay.style.display = 'flex';   
                     } else {
@@ -500,7 +501,7 @@
 
 
         });
-    </script> -->
+    </script>
     
 </body>
 </html>
