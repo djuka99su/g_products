@@ -170,6 +170,10 @@ body {
     border-radius: 5px;
     height: 14rem;
   }
+
+  .card_custom img:hover {
+    cursor: pointer;
+  }
   
   .card_custom a {
     text-decoration: none;

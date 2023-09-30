@@ -64,16 +64,6 @@
             <div class="container_cards">
                 <div class="card card_custom" style="width: 20rem;">
                     <a>
-                        <img src="ograde/img_1.jpg" class="card-img-top" alt="Loading image...">
-                        <div class="card-body card-body-custom">
-                            <h5 class="card-title">Ograda</h5>
-                            <hr>
-                            <!-- <p class="card-text">Od: 10 €</p> -->
-                        </div>
-                    </a>
-                </div>
-                <div class="card card_custom" style="width: 20rem;">
-                    <a>
                         <img src="ograde/img_2.jpg" class="card-img-top" alt="Loading image...">
                         <div class="card-body card-body-custom">
                             <h5 class="card-title">Ograda</h5>
@@ -104,27 +94,7 @@
                 </div>
                 <div class="card card_custom" style="width: 20rem;">
                     <a>
-                        <img src="ograde/img_5.jpg" class="card-img-top" alt="Loading image...">
-                        <div class="card-body card-body-custom">
-                            <h5 class="card-title">Ograda</h5>
-                            <hr>
-                            <!-- <p class="card-text">Od: 10 €</p> -->
-                        </div>
-                    </a>
-                </div>
-                <div class="card card_custom" style="width: 20rem;">
-                    <a>
                         <img src="ograde/img_6.jpg" class="card-img-top" alt="Loading image...">
-                        <div class="card-body card-body-custom">
-                            <h5 class="card-title">Ograda</h5>
-                            <hr>
-                            <!-- <p class="card-text">Od: 10 €</p> -->
-                        </div>
-                    </a>
-                </div>
-                <div class="card card_custom" style="width: 20rem;">
-                    <a>
-                        <img src="ograde/img_7.jpg" class="card-img-top" alt="Loading image...">
                         <div class="card-body card-body-custom">
                             <h5 class="card-title">Ograda</h5>
                             <hr>
@@ -184,7 +154,27 @@
                 </div>
                 <div class="card card_custom" style="width: 20rem;">
                     <a>
-                        <img src="ograde/img_13.jpg" class="card-img-top" alt="Loading image...">
+                        <img src="ograde/img_14.jpg" class="card-img-top" alt="Loading image...">
+                        <div class="card-body card-body-custom">
+                            <h5 class="card-title">Ograda</h5>
+                            <hr>
+                            <!-- <p class="card-text">Od: 10 €</p> -->
+                        </div>
+                    </a>
+                </div>
+                <div class="card card_custom" style="width: 20rem;">
+                    <a>
+                        <img src="ograde/img_15.jpg" class="card-img-top" alt="Loading image...">
+                        <div class="card-body card-body-custom">
+                            <h5 class="card-title">Ograda</h5>
+                            <hr>
+                            <!-- <p class="card-text">Od: 10 €</p> -->
+                        </div>
+                    </a>
+                </div>
+                <div class="card card_custom" style="width: 20rem;">
+                    <a>
+                        <img src="ograde/img_5.jpg" class="card-img-top" alt="Loading image...">
                         <div class="card-body card-body-custom">
                             <h5 class="card-title">Ograda</h5>
                             <hr>
@@ -204,16 +194,6 @@
                 <div class="card card_custom" style="width: 20rem;">
                     <a>
                         <img src="zardinjere/img_1.jpg" class="card-img-top" alt="Loading image...">
-                        <div class="card-body card-body-custom">
-                            <h5 class="card-title">Zardinjera</h5>
-                            <hr>
-                            <!-- <p class="card-text">Od: 10 €</p> -->
-                        </div>
-                    </a>
-                </div>
-                <div class="card card_custom" style="width: 20rem;">
-                    <a>
-                        <img src="zardinjere/img_2.jpg" class="card-img-top" alt="Loading image...">
                         <div class="card-body card-body-custom">
                             <h5 class="card-title">Zardinjera</h5>
                             <hr>
@@ -250,16 +230,6 @@
                 Stolovi
             </h2>
             <div class="container_cards">
-                <div class="card card_custom" style="width: 20rem;">
-                    <a>
-                        <img src="stolovi/img_1.jpg" class="card-img-top" alt="Loading image...">
-                        <div class="card-body card-body-custom">
-                            <h5 class="card-title">Sto</h5>
-                            <hr>
-                            <!-- <p class="card-text">Od: 10 €</p> -->
-                        </div>
-                    </a>
-                </div>
                 <div class="card card_custom" style="width: 20rem;">
                     <a>
                         <img src="stolovi/img_2.jpg" class="card-img-top" alt="Loading image...">
@@ -456,52 +426,6 @@
     <div id="overlay">
         <img id="large-image" src="" alt="Large Image">
     </div>
-
-    <script>
-        window.addEventListener('DOMContentLoaded', (event) => {
-            const overlay = document.getElementById('overlay');
-            const largeImage = document.getElementById('large-image');
-            const closeBtn = document.getElementById('close-btn');
-            const phoneNum = document.getElementById('phone-num')
-
-            function hideOverlay() {
-                console.log('Closing overlay');
-                overlay.style.display = 'none';
-                closeBtn.style.display = 'none';
-                phoneNum.style.display = 'block';
-            }
-
-
-            const images = document.querySelectorAll('.card-img-top');
-            images.forEach(img => {
-                img.addEventListener('click', (e) => {
-                    largeImage.src = e.target.src;  
-                    if (window.innerWidth < 1200) {
-                        overlay.style.display = 'flex';   
-                    } else {
-                        overlay.style.display = 'flex';  
-                        closeBtn.style.display = 'block';
-                        phoneNum.style.display = 'none';
-                    }
-                });
-            });
-
-            largeImage.onload = () => {
-                    overlay.addEventListener('click', (ee) => {
-                        if (overlay.contains(ee.target) && ee.target !== largeImage) {
-                            hideOverlay();
-                        } 
-                    });
-                };
-
-
-            closeBtn.addEventListener('click', () => { 
-                hideOverlay();
-            });
-
-
-        });
-    </script>
     
 </body>
 </html>
