@@ -412,8 +412,8 @@ body {
   .next-slide {
     font-size: 2rem;
     position: relative;
-    left: 42%;
-    top: 13rem;
+    /* left: 42%; */
+    /* top: 13rem; */
     transition: transform 0.5s ease-in-out;
   }
 
@@ -424,8 +424,8 @@ body {
   .previous-slide {
     font-size: 2rem;
     position: relative;
-    right: 42%;
-    top: 16rem;
+    /* right: 42%;
+    top: 16rem; */
     transition: transform 0.5s ease-in-out;
   }
 
