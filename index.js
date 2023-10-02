@@ -2,7 +2,7 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const overlay = document.getElementById('overlay');
     const largeImage = document.getElementById('large-image');
     const closeBtn = document.getElementById('close-btn');
-    const phoneNum = document.getElementById('phone-num')
+    const phoneNum = document.getElementById('phone-num');
 
     function hideOverlay() {
         console.log('Closing overlay');
@@ -41,6 +41,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
 
 
 });
+
+
 
 
 

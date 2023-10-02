@@ -72,6 +72,8 @@
             <h2 class="bold">
                 Ograde
             </h2>
+            <div class="previous-slide"> <i class="fa-solid fa-angle-left"></i> </div>
+            <div class="next-slide"><i class="fa-solid fa-angle-right"></i></div>
             <div class="container_cards">
                 <div class="card card_custom" style="width: 20rem;">
                     <a>
@@ -438,5 +440,97 @@
         <img id="large-image" src="" alt="Large Image">
     </div>
     
+    <script>
+        const containers = document.querySelectorAll('.content-container');
+
+
+        containers.forEach(container => {
+            const cards = container.querySelectorAll('.card_custom')
+            cards.forEach(function(card, i) {
+                if(window.innerWidth < 1353 && i>1){
+                    card.style.display = 'none'
+                }
+                else if(window.innerWidth < 836 && i > 0){
+                    card.style.display = 'none'
+                } else if ( i > 2) {
+                    card.style.display = 'none'
+                }
+            });
+        });
+
+        const nextSlide = document.querySelector('.next-slide');
+        const previousSlide = document.querySelector('.previous-slide');
+        const containerOneCards = containers[0].querySelectorAll('.card_custom');
+        
+        let i = 0;
+        if(innerWidth < 1353 && innerWidth > 836){
+            nextSlide.addEventListener('click', () => {
+                if(i != containerOneCards.length - 2){
+                    containerOneCards[i].style.display = 'none';
+                    containerOneCards[i + 1].style.display = 'none';
+                    containerOneCards[i + 2].style.display = 'flex';
+                    containerOneCards[i + 3].style.display = 'flex';
+                    i += 2;
+                }
+            })
+
+            previousSlide.addEventListener('click', () =>{
+                if(i != 0){
+                    containerOneCards[i].style.display = 'none';
+                    containerOneCards[i + 1].style.display = 'none';
+                    containerOneCards[i - 1].style.display = 'flex';
+                    containerOneCards[i - 2].style.display = 'flex';
+                    i -= 2;
+                }
+            })
+
+
+
+
+        }else if(innerWidth < 836){
+            nextSlide.addEventListener('click', () => {
+                if(i != containerOneCards.length-1){
+                    containerOneCards[i].style.display = 'none';
+                    containerOneCards[i + 1].style.display = 'flex';
+                    i++;
+                    console.log(i);
+                }
+            })
+
+            previousSlide.addEventListener('click', () => {                
+                if(i != 0){
+                    containerOneCards[i].style.display = 'none';
+                    containerOneCards[i - 1].style.display = 'flex';
+                    i--;
+                }
+            })
+
+        }else{
+            nextSlide.addEventListener('click', () => {
+                if(i < containerOneCards.length - 4){
+                    containerOneCards[i].style.display = 'none';
+                    containerOneCards[i + 1].style.display = 'none';
+                    containerOneCards[i + 2].style.display = 'none';
+                    containerOneCards[i + 3].style.display = 'flex';
+                    containerOneCards[i + 4].style.display = 'flex';
+                    containerOneCards[i + 5].style.display = 'flex';
+                    i += 3;
+                }
+            })
+
+            previousSlide.addEventListener('click', () => {
+                if(i != 0){
+                    containerOneCards[i + 2].style.display = 'none';
+                    containerOneCards[i + 1].style.display = 'none';
+                    containerOneCards[i].style.display = 'none';
+                    containerOneCards[i - 1].style.display = 'flex';
+                    containerOneCards[i - 2].style.display = 'flex';
+                    containerOneCards[i - 3].style.display = 'flex';
+                    i -= 3;
+                }
+            })
+        }
+    </script>
+
 </body>
 </html>

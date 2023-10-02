@@ -407,3 +407,28 @@ body {
   #close-btn:hover {
     transform: scale(1.2); 
   }
+
+
+  .next-slide {
+    font-size: 2rem;
+    position: relative;
+    left: 42%;
+    top: 13rem;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .next-slide:hover {
+    transform: scale(1.2);
+  }
+
+  .previous-slide {
+    font-size: 2rem;
+    position: relative;
+    right: 42%;
+    top: 16rem;
+    transition: transform 0.5s ease-in-out;
+  }
+
+  .previous-slide:hover {
+    transform: scale(1.2);
+  }
