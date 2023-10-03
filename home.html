@@ -203,6 +203,8 @@
             <h2 class="bold">
                 Žardinjere
             </h2>
+            <div class="previous-slide"> <i class="fa-solid fa-angle-left"></i></div>
+            <div class="next-slide"><i class="fa-solid fa-angle-right"></i></div>
             <div class="container_cards">
                 <div class="card card_custom" style="width: 20rem;">
                     <a>
@@ -242,6 +244,8 @@
             <h2 class="bold">
                 Stolovi
             </h2>
+            <div class="previous-slide"> <i class="fa-solid fa-angle-left"></i></div>
+            <div class="next-slide"><i class="fa-solid fa-angle-right"></i></div>
             <div class="container_cards">
                 <div class="card card_custom" style="width: 20rem;">
                     <a>
@@ -261,6 +265,8 @@
             <h2 class="bold">
                 Kombinacije
             </h2>
+            <div class="previous-slide"> <i class="fa-solid fa-angle-left"></i></div>
+            <div class="next-slide"><i class="fa-solid fa-angle-right"></i></div>
             <div class="container_cards">
                 <div class="card card_custom" style="width: 20rem;">
                     <a>
@@ -458,78 +464,83 @@
             });
         });
 
-        const nextSlide = document.querySelector('.next-slide');
-        const previousSlide = document.querySelector('.previous-slide');
-        const containerOneCards = containers[0].querySelectorAll('.card_custom');
         
-        let i = 0;
-        if(innerWidth < 1353 && innerWidth > 836){
-            nextSlide.addEventListener('click', () => {
-                if(i != containerOneCards.length - 2){
-                    containerOneCards[i].style.display = 'none';
-                    containerOneCards[i + 1].style.display = 'none';
-                    containerOneCards[i + 2].style.display = 'flex';
-                    containerOneCards[i + 3].style.display = 'flex';
-                    i += 2;
-                }
-            })
+        function imageSlider(index){
+            const nextSlide = containers[index].querySelector('.next-slide');
+            const previousSlide = containers[index].querySelector('.previous-slide');
+            const containerOneCards = containers[index].querySelectorAll('.card_custom');
+        
+            let i = 0;
+            if(innerWidth < 1353 && innerWidth > 836){
+                nextSlide.addEventListener('click', () => {
+                    if(i != containerOneCards.length - 2){
+                        containerOneCards[i].style.display = 'none';
+                        containerOneCards[i + 1].style.display = 'none';
+                        containerOneCards[i + 2].style.display = 'flex';
+                        containerOneCards[i + 3].style.display = 'flex';
+                        i += 2;
+                    }
+                })
 
-            previousSlide.addEventListener('click', () =>{
-                if(i != 0){
-                    containerOneCards[i].style.display = 'none';
-                    containerOneCards[i + 1].style.display = 'none';
-                    containerOneCards[i - 1].style.display = 'flex';
-                    containerOneCards[i - 2].style.display = 'flex';
-                    i -= 2;
-                }
-            })
+                previousSlide.addEventListener('click', () =>{
+                    if(i != 0){
+                        containerOneCards[i].style.display = 'none';
+                        containerOneCards[i + 1].style.display = 'none';
+                        containerOneCards[i - 1].style.display = 'flex';
+                        containerOneCards[i - 2].style.display = 'flex';
+                        i -= 2;
+                    }
+                })
 
+            }else if(innerWidth < 836){
+                nextSlide.addEventListener('click', () => {
+                    if(i != containerOneCards.length-1){
+                        containerOneCards[i].style.display = 'none';
+                        containerOneCards[i + 1].style.display = 'flex';
+                        i++;
+                        console.log(i);
+                    }
+                })
 
+                previousSlide.addEventListener('click', () => {                
+                    if(i != 0){
+                        containerOneCards[i].style.display = 'none';
+                        containerOneCards[i - 1].style.display = 'flex';
+                        i--;
+                    }
+                })
 
+            }else{
+                nextSlide.addEventListener('click', () => {
+                    if(i < containerOneCards.length - 4){
+                        containerOneCards[i].style.display = 'none';
+                        containerOneCards[i + 1].style.display = 'none';
+                        containerOneCards[i + 2].style.display = 'none';
+                        containerOneCards[i + 3].style.display = 'flex';
+                        containerOneCards[i + 4].style.display = 'flex';
+                        containerOneCards[i + 5].style.display = 'flex';
+                        i += 3;
+                    }
+                })
 
-        }else if(innerWidth < 836){
-            nextSlide.addEventListener('click', () => {
-                if(i != containerOneCards.length-1){
-                    containerOneCards[i].style.display = 'none';
-                    containerOneCards[i + 1].style.display = 'flex';
-                    i++;
-                    console.log(i);
-                }
-            })
-
-            previousSlide.addEventListener('click', () => {                
-                if(i != 0){
-                    containerOneCards[i].style.display = 'none';
-                    containerOneCards[i - 1].style.display = 'flex';
-                    i--;
-                }
-            })
-
-        }else{
-            nextSlide.addEventListener('click', () => {
-                if(i < containerOneCards.length - 4){
-                    containerOneCards[i].style.display = 'none';
-                    containerOneCards[i + 1].style.display = 'none';
-                    containerOneCards[i + 2].style.display = 'none';
-                    containerOneCards[i + 3].style.display = 'flex';
-                    containerOneCards[i + 4].style.display = 'flex';
-                    containerOneCards[i + 5].style.display = 'flex';
-                    i += 3;
-                }
-            })
-
-            previousSlide.addEventListener('click', () => {
-                if(i != 0){
-                    containerOneCards[i + 2].style.display = 'none';
-                    containerOneCards[i + 1].style.display = 'none';
-                    containerOneCards[i].style.display = 'none';
-                    containerOneCards[i - 1].style.display = 'flex';
-                    containerOneCards[i - 2].style.display = 'flex';
-                    containerOneCards[i - 3].style.display = 'flex';
-                    i -= 3;
-                }
-            })
-        }
+                previousSlide.addEventListener('click', () => {
+                    if(i != 0){
+                        containerOneCards[i + 2].style.display = 'none';
+                        containerOneCards[i + 1].style.display = 'none';
+                        containerOneCards[i].style.display = 'none';
+                        containerOneCards[i - 1].style.display = 'flex';
+                        containerOneCards[i - 2].style.display = 'flex';
+                        containerOneCards[i - 3].style.display = 'flex';
+                        i -= 3;
+                    }
+                })
+            }
+            }
+        
+        imageSlider(0);
+        imageSlider(1);
+        imageSlider(2);
+        imageSlider(3);
     </script>
 
 </body>
