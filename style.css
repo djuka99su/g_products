@@ -414,6 +414,7 @@ body {
     position: relative;
     margin-left: 85%;
     top: 13rem;
+    cursor: pointer;
     transition: transform 0.5s ease-in-out;
   }
 
@@ -426,6 +427,7 @@ body {
     position: relative;
     margin-right: 85%;
     top: 16rem;
+    cursor: pointer;
     transition: transform 0.5s ease-in-out;
   }
 
