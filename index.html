@@ -484,35 +484,51 @@
         function imageSlider(index){
             const nextSlide = containers[index].querySelector('.next-slide');
             const previousSlide = containers[index].querySelector('.previous-slide');
-            const containerOneCards = containers[index].querySelectorAll('.card_custom');
+            const containerCards = containers[index].querySelectorAll('.card_custom');
         
             let i = 0;
+            if(innerWidth < 1353 && innerWidth > 836 && containerCards.length < 2){
+                nextSlide.style.display = 'none';
+                previousSlide.style.display = 'none';
+            }
+
+            else if(innerWidth < 836 && containerCards.length < 1){
+                nextSlide.style.display = 'none';
+                previousSlide.style.display = 'none';
+            }
+            
+            else if(containerCards.length < 3){
+                nextSlide.style.display = 'none';
+                previousSlide.style.display = 'none';
+            }
+
+            
             if(innerWidth < 1353 && innerWidth > 836){
                 nextSlide.addEventListener('click', () => {
-                    if(i != containerOneCards.length - 2){
-                        containerOneCards[i].style.display = 'none';
-                        containerOneCards[i + 1].style.display = 'none';
-                        containerOneCards[i + 2].style.display = 'flex';
-                        containerOneCards[i + 3].style.display = 'flex';
+                    if(i != containerCards.length - 2){
+                        containerCards[i].style.display = 'none';
+                        containerCards[i + 1].style.display = 'none';
+                        containerCards[i + 2].style.display = 'flex';
+                        containerCards[i + 3].style.display = 'flex';
                         i += 2;
                     }
                 })
 
                 previousSlide.addEventListener('click', () =>{
                     if(i != 0){
-                        containerOneCards[i].style.display = 'none';
-                        containerOneCards[i + 1].style.display = 'none';
-                        containerOneCards[i - 1].style.display = 'flex';
-                        containerOneCards[i - 2].style.display = 'flex';
+                        containerCards[i].style.display = 'none';
+                        containerCards[i + 1].style.display = 'none';
+                        containerCards[i - 1].style.display = 'flex';
+                        containerCards[i - 2].style.display = 'flex';
                         i -= 2;
                     }
                 })
 
             }else if(innerWidth < 836){
                 nextSlide.addEventListener('click', () => {
-                    if(i != containerOneCards.length-1){
-                        containerOneCards[i].style.display = 'none';
-                        containerOneCards[i + 1].style.display = 'flex';
+                    if(i != containerCards.length-1){
+                        containerCards[i].style.display = 'none';
+                        containerCards[i + 1].style.display = 'flex';
                         i++;
                         console.log(i);
                     }
@@ -520,33 +536,33 @@
 
                 previousSlide.addEventListener('click', () => {                
                     if(i != 0){
-                        containerOneCards[i].style.display = 'none';
-                        containerOneCards[i - 1].style.display = 'flex';
+                        containerCards[i].style.display = 'none';
+                        containerCards[i - 1].style.display = 'flex';
                         i--;
                     }
                 })
 
             }else{
                 nextSlide.addEventListener('click', () => {
-                    if(i < containerOneCards.length - 4){
-                        containerOneCards[i].style.display = 'none';
-                        containerOneCards[i + 1].style.display = 'none';
-                        containerOneCards[i + 2].style.display = 'none';
-                        containerOneCards[i + 3].style.display = 'flex';
-                        containerOneCards[i + 4].style.display = 'flex';
-                        containerOneCards[i + 5].style.display = 'flex';
+                    if(i < containerCards.length - 4){
+                        containerCards[i].style.display = 'none';
+                        containerCards[i + 1].style.display = 'none';
+                        containerCards[i + 2].style.display = 'none';
+                        containerCards[i + 3].style.display = 'flex';
+                        containerCards[i + 4].style.display = 'flex';
+                        containerCards[i + 5].style.display = 'flex';
                         i += 3;
                     }
                 })
 
                 previousSlide.addEventListener('click', () => {
                     if(i != 0){
-                        containerOneCards[i + 2].style.display = 'none';
-                        containerOneCards[i + 1].style.display = 'none';
-                        containerOneCards[i].style.display = 'none';
-                        containerOneCards[i - 1].style.display = 'flex';
-                        containerOneCards[i - 2].style.display = 'flex';
-                        containerOneCards[i - 3].style.display = 'flex';
+                        containerCards[i + 2].style.display = 'none';
+                        containerCards[i + 1].style.display = 'none';
+                        containerCards[i].style.display = 'none';
+                        containerCards[i - 1].style.display = 'flex';
+                        containerCards[i - 2].style.display = 'flex';
+                        containerCards[i - 3].style.display = 'flex';
                         i -= 3;
                     }
                 })
