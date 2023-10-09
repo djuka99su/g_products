@@ -4,6 +4,8 @@ window.addEventListener('DOMContentLoaded', (event) => {
     const closeBtn = document.getElementById('close-btn');
     const phoneNum = document.getElementById('phone-num');
 
+
+    
     function hideOverlay() {
         console.log('Closing overlay');
         overlay.style.display = 'none';

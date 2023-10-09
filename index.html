@@ -492,14 +492,18 @@
         });
 
         function buttonHandler(){
-            const upButton = document.querySelector('.up-holder');
-            upButton.addEventListener('click', () => {
+            document.addEventListener('DOMContentLoaded', () => {
+                const upButton = document.querySelector('.up-holder');
+                upButton.addEventListener('click', () => {
                 window.scrollTo({
                     top: 0,
                     behavior: "smooth"
                 });
-            })
+                });
+            });
         }
+
+        buttonHandler()
 
         
         function imageSlider(index){
